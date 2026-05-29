@@ -28,10 +28,11 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def fetch_prizepicks(league_id=None):
     url = f"https://api.prizepicks.com/projections?league_id={league_id}&per_page=250&single_stat=true" if league_id else "https://api.prizepicks.com/projections?per_page=500&single_stat=true"
     headers = {
-        "User-Agent": "Mozilla/5.0",
-        "Accept": "application/json",
-        "Referer": "https://prizepicks.com/",
-        "Origin": "https://prizepicks.com",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://app.prizepicks.com/",
+        "Origin": "https://app.prizepicks.com",
     }
     async with aiohttp.ClientSession() as session:
         async with session.get(url, headers=headers) as resp:
